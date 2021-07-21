@@ -132,6 +132,7 @@ dataset/*.zip
 dataset/glove.6B
 dataset/listings.csv
 
+.idea
 
 
 

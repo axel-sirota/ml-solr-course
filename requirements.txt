@@ -1,0 +1,7 @@
+pysolr~=3.9.0
+numpy
+keras
+gensim
+tensorflow
+pandas
+python-Levenshtein

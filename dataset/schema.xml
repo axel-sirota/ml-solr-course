@@ -273,6 +273,19 @@
       <filter class="solr.LowerCaseFilterFactory"/>
     </analyzer>
   </fieldType>
+  <fieldType name="text" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
+        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
   <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100" multiValued="true">
     <analyzer type="index">
       <tokenizer class="solr.StandardTokenizerFactory"/>
@@ -453,75 +466,26 @@
   <field name="_version_" type="plong" indexed="false" stored="false"/>
   <field name="accommodates" type="pint" multiValued="false"/>
   <field name="amenities" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="availability_30" type="pint" multiValued="false"/>
-  <field name="availability_365" type="pint" multiValued="false"/>
-  <field name="availability_60" type="pint" multiValued="false"/>
-  <field name="availability_90" type="pint" multiValued="false"/>
+  <field name="bathrooms" type="pint" multiValued="false" indexed="true" stored="true"/>
   <field name="bathrooms_text" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="bedrooms" type="pint" multiValued="false"/>
-  <field name="beds" type="pint" multiValued="false"/>
-  <field name="calculated_host_listings_count" type="pint" multiValued="false"/>
-  <field name="calculated_host_listings_count_entire_homes" type="pint" multiValued="false"/>
-  <field name="calculated_host_listings_count_private_rooms" type="pint" multiValued="false"/>
-  <field name="calculated_host_listings_count_shared_rooms" type="pint" multiValued="false"/>
-  <field name="calendar_last_scraped" type="pdates"/>
+  <field name="bedrooms" type="string" multiValued="false"/>
+  <field name="beds" type="pdouble" multiValued="false"/>
   <field name="description" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="first_review" type="pdates"/>
-  <field name="has_availability" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="host_about" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="host_acceptance_rate" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="host_has_profile_pic" type="text_general" multiValued="false" indexed="true" stored="true"/>
   <field name="host_id" type="pint" multiValued="false"/>
-  <field name="host_identity_verified" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="host_is_superhost" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="host_listings_count" type="pint" multiValued="false"/>
-  <field name="host_location" type="text_general" multiValued="false" indexed="true" stored="true"/>
   <field name="host_name" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="host_neighbourhood" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="host_picture_url" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="host_response_rate" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="host_response_time" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="host_since" type="pdates"/>
-  <field name="host_thumbnail_url" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="host_total_listings_count" type="pint" multiValued="false"/>
   <field name="host_url" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="host_verifications" type="text_general" multiValued="false" indexed="true" stored="true"/>
   <field name="id" type="string" multiValued="false" indexed="true" stored="true" required="true"/>
-  <field name="instant_bookable" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="last_review" type="pdates"/>
-  <field name="last_scraped" type="pdates"/>
-  <field name="latitude" type="pdoubles"/>
   <field name="listing_url" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="longitude" type="pdoubles"/>
-  <field name="maximum_maximum_nights" type="pint" multiValued="false"/>
-  <field name="maximum_minimum_nights" type="pint" multiValued="false"/>
-  <field name="maximum_nights" type="pint" multiValued="false"/>
-  <field name="maximum_nights_avg_ntm" type="pdoubles" multiValued="false"/>
-  <field name="minimum_maximum_nights" type="pint" multiValued="false"/>
-  <field name="minimum_minimum_nights" type="pint" multiValued="false"/>
-  <field name="minimum_nights" type="pint" multiValued="false"/>
-  <field name="minimum_nights_avg_ntm" type="pdoubles"/>
   <field name="name" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="neighborhood_overview" type="text_general" multiValued="false" indexed="true" stored="true"/>
   <field name="neighbourhood" type="text_general" multiValued="false" indexed="true" stored="true"/>
   <field name="neighbourhood_cleansed" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="neighbourhood_group_cleansed" type="text_general" multiValued="false" indexed="true" stored="true"/>
+  <field name="neighborhood_overview" type="text_general" multiValued="false" indexed="true" stored="true"/>
   <field name="number_of_reviews" type="pint" multiValued="false"/>
-  <field name="number_of_reviews_l30d" type="pint" multiValued="false"/>
-  <field name="number_of_reviews_ltm" type="pint" multiValued="false"/>
-  <field name="picture_url" type="text_general" multiValued="false" indexed="true" stored="true"/>
   <field name="price" type="text_general" multiValued="false" indexed="true" stored="true"/>
   <field name="property_type" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="review_scores_accuracy" type="pint" multiValued="false"/>
-  <field name="review_scores_checkin" type="pint" multiValued="false"/>
-  <field name="review_scores_cleanliness" type="pint" multiValued="false"/>
-  <field name="review_scores_communication" type="pint" multiValued="false"/>
-  <field name="review_scores_location" type="pint" multiValued="false"/>
-  <field name="review_scores_rating" type="pint" multiValued="false"/>
-  <field name="review_scores_value" type="pint" multiValued="false"/>
   <field name="reviews_per_month" type="pdoubles"/>
   <field name="room_type" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="scrape_id" type="plong" />
+  <field name="def" type="text" indexed="true" stored="false" multiValued="true" />
   <dynamicField name="*_txt_en_split_tight" type="text_en_splitting_tight" indexed="true" stored="true"/>
   <dynamicField name="*_descendent_path" type="descendent_path" indexed="true" stored="true"/>
   <dynamicField name="*_ancestor_path" type="ancestor_path" indexed="true" stored="true"/>
@@ -591,33 +555,22 @@
   <dynamicField name="*_f" type="pfloat" indexed="true" stored="true"/>
   <dynamicField name="*_d" type="pdouble" indexed="true" stored="true"/>
   <dynamicField name="*_p" type="location" indexed="true" stored="true"/>
-  <copyField source="host_verifications" dest="host_verifications_str" maxChars="256"/>
+  <copyField source="amenities" dest="def"/>
+  <copyField source="neighbourhood_cleansed" dest="def"/>
+  <copyField source="description" dest="def"/>
+  <copyField source="price" dest="def"/>
+  <copyField source="property_type" dest="def"/>
   <copyField source="amenities" dest="amenities_str" maxChars="256"/>
   <copyField source="host_url" dest="host_url_str" maxChars="256"/>
   <copyField source="neighbourhood_cleansed" dest="neighbourhood_cleansed_str" maxChars="256"/>
-  <copyField source="picture_url" dest="picture_url_str" maxChars="256"/>
   <copyField source="description" dest="description_str" maxChars="256"/>
-  <copyField source="neighborhood_overview" dest="neighborhood_overview_str" maxChars="256"/>
-  <copyField source="neighbourhood_group_cleansed" dest="neighbourhood_group_cleansed_str" maxChars="256"/>
-  <copyField source="host_location" dest="host_location_str" maxChars="256"/>
+  <copyField source="neighbourhood" dest="neighbourhood_str" maxChars="256"/>
   <copyField source="neighbourhood" dest="neighbourhood_str" maxChars="256"/>
   <copyField source="price" dest="price_str" maxChars="256"/>
-  <copyField source="has_availability" dest="has_availability_str" maxChars="256"/>
   <copyField source="property_type" dest="property_type_str" maxChars="256"/>
-  <copyField source="host_response_rate" dest="host_response_rate_str" maxChars="256"/>
-  <copyField source="host_identity_verified" dest="host_identity_verified_str" maxChars="256"/>
   <copyField source="listing_url" dest="listing_url_str" maxChars="256"/>
-  <copyField source="host_response_time" dest="host_response_time_str" maxChars="256"/>
-  <copyField source="host_about" dest="host_about_str" maxChars="256"/>
-  <copyField source="host_picture_url" dest="host_picture_url_str" maxChars="256"/>
-  <copyField source="host_has_profile_pic" dest="host_has_profile_pic_str" maxChars="256"/>
   <copyField source="bathrooms_text" dest="bathrooms_text_str" maxChars="256"/>
-  <copyField source="host_acceptance_rate" dest="host_acceptance_rate_str" maxChars="256"/>
   <copyField source="name" dest="name_str" maxChars="256"/>
-  <copyField source="host_is_superhost" dest="host_is_superhost_str" maxChars="256"/>
-  <copyField source="host_thumbnail_url" dest="host_thumbnail_url_str" maxChars="256"/>
-  <copyField source="host_neighbourhood" dest="host_neighbourhood_str" maxChars="256"/>
-  <copyField source="instant_bookable" dest="instant_bookable_str" maxChars="256"/>
   <copyField source="host_name" dest="host_name_str" maxChars="256"/>
   <copyField source="room_type" dest="room_type_str" maxChars="256"/>
 </schema>
