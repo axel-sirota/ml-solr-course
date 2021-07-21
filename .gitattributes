@@ -1,0 +1,4 @@
+dataset/*.csv filter=lfs diff=lfs merge=lfs -text
+dataset/*.gz filter=lfs diff=lfs merge=lfs -text
+dataset/*.txt filter=lfs diff=lfs merge=lfs -text
+dataset/*.tsv filter=lfs diff=lfs merge=lfs -text
