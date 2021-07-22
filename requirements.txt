@@ -5,3 +5,6 @@ gensim
 tensorflow
 pandas
 python-Levenshtein
+jupyter
+lxml
+beautifulsoup4
