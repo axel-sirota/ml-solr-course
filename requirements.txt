@@ -8,3 +8,4 @@ python-Levenshtein
 jupyter
 lxml
 beautifulsoup4
+transformers
