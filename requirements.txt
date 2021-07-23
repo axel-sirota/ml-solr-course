@@ -9,3 +9,4 @@ jupyter
 lxml
 beautifulsoup4
 transformers
+spacy
