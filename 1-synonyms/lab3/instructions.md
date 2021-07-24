@@ -1,4 +1,4 @@
-# Lab 1
+# Lab 3
 ## Synonym Expansion in Apache Solr
 
 In this notebook we will wrap up what we have done in previous labs in the section by using the word embeddings we have trained.

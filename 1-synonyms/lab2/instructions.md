@@ -1,4 +1,4 @@
-# Lab 1
+# Lab 2
 ## Using GloVe Embedding
 
 In this notebook we will leverage Standford's GloVe vectors which is a pretrained embedding on 1.4B Tweets. 
