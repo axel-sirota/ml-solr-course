@@ -464,10 +464,10 @@
   <field name="_root_" type="string" docValues="false" indexed="true" stored="false"/>
   <field name="_text_" type="text_general"  multiValued="true" indexed="true" stored="false"/>
   <field name="_version_" type="plong" indexed="false" stored="false"/>
-  <field name="description" type="text_general" multiValued="false" indexed="true" stored="true"/>
+  <field name="description" type="text_general" multiValued="false" indexed="false" stored="true"/>
   <field name="id" type="string" multiValued="false" indexed="true" stored="true" required="true"/>
   <field name="name" type="text_general" multiValued="false" indexed="true" stored="true"/>
-  <field name="neighbourhood_cleansed" type="text_general" multiValued="false" indexed="true" stored="true"/>
+  <field name="neighbourhood_cleansed" type="text_general" multiValued="false" indexed="false" stored="true"/>
   <field name="property_type" type="text_general" multiValued="false" indexed="true" stored="true"/>
   <field name="tags" type="text_general" indexed="true" stored="true" multiValued="true" />
   <field name="def" type="text" indexed="true" stored="false" multiValued="true" />
@@ -541,10 +541,7 @@
   <dynamicField name="*_d" type="pdouble" indexed="true" stored="true"/>
   <dynamicField name="*_p" type="location" indexed="true" stored="true"/>
   <copyField source="tags" dest="def"/>
-  <copyField source="neighbourhood_cleansed" dest="def"/>
-  <copyField source="description" dest="def"/>
   <copyField source="name" dest="def"/>
-  <copyField source="property_type" dest="def"/>
   <copyField source="neighbourhood_cleansed" dest="neighbourhood_cleansed_str" maxChars="256"/>
   <copyField source="description" dest="description_str" maxChars="256"/>
   <copyField source="property_type" dest="property_type_str" maxChars="256"/>
