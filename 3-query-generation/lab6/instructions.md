@@ -1,9 +1,10 @@
-# Lab 4
-## Distributed Memory Bag of Words (DBOW)
+# Lab 6
+## Text Generation with RNN/GRU
 
-In this notebook we will train from scratch a DBOW document embedding model based Airbnb rental descriptions on various main cities of the world (135000 listings).
+In this notebook we will train from scratch in an unsupervised fashion text generation to replicate the descriptions of the Airbnbn rentals. For time limitations it will not be the best model but it is structured in a portable fashion to your needs.
 
-Take it easy and pay attention to the model, how easy it is to define it, and how easy it is to define Doc2Vec in gensim (which adds a layer over Keras).
+
+Take it easy and pay attention to the model, how we pass states, and the complexities to do the passthrough of passing the states character by character.
 
 Run `jupyter notebook` and access the notebook in this lab, under `exercise`. Follow the instructions. Good luck!
 
