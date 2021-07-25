@@ -10,3 +10,5 @@ lxml
 beautifulsoup4
 transformers
 spacy
+matplotlib
+sklearn
