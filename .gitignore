@@ -135,3 +135,4 @@ dataset/train_doc2vec/new_york_listings.csv
 .idea
 dataset/train_doc2vec
 scripts
+*_axel.ipynb
