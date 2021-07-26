@@ -3,6 +3,12 @@
 
 In this final notebook, we will enrich index time by adding tag attribute fields as default searcheable fields, to avoid indexing the whole description
 
+0- Install en_core_web_trf
+
+```
+python3 -m spacy download en_core_web_trf
+```
+
 1- Run `jupyter notebook` and access the notebook in this lab, under `exercise`. Follow the instructions. Good luck!
 
 Note: You can always check at the solutions!
